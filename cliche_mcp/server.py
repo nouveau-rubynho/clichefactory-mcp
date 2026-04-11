@@ -112,8 +112,7 @@ async def extract(
 async def to_markdown(
     file: str,
     mode: str | None = None,
-    markdown_mode: str | None = None,
-    parser: str | None = None,
+    conversion_mode: str | None = None,
     model: str | None = None,
     model_api_key: str | None = None,
     ocr_model: str | None = None,
@@ -129,10 +128,9 @@ async def to_markdown(
     Args:
         file: Absolute path to the document file.
         mode: Client mode — "local" or "service". Defaults to config file setting.
-        markdown_mode: Where to run the conversion — "local" (on user's machine)
-            or "service" (ClicheFactory cloud). Defaults to "local".
-        parser: Parser to use (service mode only). Options:
-            "default", "fast" (VLM-only, no OCR).
+        conversion_mode: Conversion mode (service mode only). Options:
+            - omit for standard OCR + LLM conversion (most reliable).
+            - "fast" — send raw bytes to a multimodal LLM, skipping OCR (faster).
         model: LLM model override (e.g. "gemini/gemini-3-flash-preview").
         model_api_key: API key for the model override.
         ocr_model: Separate model for OCR/VLM tasks.
@@ -156,8 +154,7 @@ async def to_markdown(
 
         doc = await client.to_markdown_async(
             file=file,
-            mode=markdown_mode,
-            parser=parser,
+            conversion_mode=conversion_mode,
         )
 
         return doc.get_markdown() if hasattr(doc, "get_markdown") else str(doc)
