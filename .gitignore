@@ -1,9 +1,48 @@
+# ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
-*.egg-info/
-dist/
+*.pyo
+*.pyd
+*.so
+
+# ── Build & packaging ─────────────────────────────────────────────────────────
 build/
-.venv/
+dist/
+*.egg-info/
 *.egg
+MANIFEST
 .eggs/
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.python-version
+
+# ── uv ────────────────────────────────────────────────────────────────────────
 uv.lock
+
+# ── Testing & coverage ────────────────────────────────────────────────────────
+.pytest_cache/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# ── Type checking & linting ───────────────────────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# ── IDE / editor ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ── Secrets & local config ────────────────────────────────────────────────────
+.env
+.env.*
+*.env

@@ -1,32 +1,36 @@
 [project]
 name = "clichefactory-mcp"
-version = "0.1.0"
+dynamic = ["version"]
 description = "MCP server for ClicheFactory — structured data extraction from documents"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Urban Susnik s.p.", email = "info@clichefactory.com"}]
 requires-python = ">=3.12"
-dependencies = [
-    "mcp[cli]",
-    "clichefactory",
-    # Local parsing/OCR stack (mirrored from clichefactory[local])
-    "pymupdf>=1.25.0,<1.26.0",
-    "docling>=2.67.0,<2.71.0",
-    "openpyxl>=3.1.0,<3.3.0",
-    "python-docx>=1.2.0,<1.4.0",
-    "pillow>=10.0.0,<11.0.0",
-    "rapidocr>=3.3.0,<4.0.0",
-    "pytesseract>=0.3.10,<0.3.15",
-    "tesserocr>=2.7.0,<2.9.0",
-    "pypdf>=4.0.0,<4.2.0",
+keywords = ["mcp", "document-extraction", "ocr", "pdf", "llm", "pydantic"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
 ]
+dependencies = [
+    "mcp[cli]>=1.0.0,<2",
+    "clichefactory>=0.1.0",
+]
+
+[project.optional-dependencies]
+# Full local parsing/OCR stack (~2 GB). Install via: pip install clichefactory-mcp[local]
+local = ["clichefactory[local]"]
 
 [project.scripts]
 clichefactory-mcp = "cliche_mcp:main"
 
-[tool.uv.sources]
-clichefactory = { path = "../aio" }
+[project.urls]
+Homepage = "https://clichefactory.com"
+Repository = "https://github.com/nouveau-rubynho/clichefactory-mcp"
 
-[tool.setuptools.packages.find]
-include = ["cliche_mcp", "cliche_mcp.*"]
+[tool.hatch.version]
+path = "cliche_mcp/__about__.py"
 
 [build-system]
-requires = ["setuptools>=70.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -53,26 +53,16 @@ The server supports two modes, matching the SDK and CLI:
 - Python ≥ 3.12
 - [uv](https://docs.astral.sh/uv/) (recommended) or pip
 
-### From source (development)
-
-```bash
-cd cliche-mcp
-uv sync
-```
-
-This installs the MCP SDK and resolves `clichefactory` from the local `../aio` directory.
-
-For local-mode extraction (document parsing on your machine), also install the local extras in the SDK:
-
-```bash
-cd ../aio
-uv pip install -e ".[local]"
-```
-
-### From PyPI (when published)
+### From PyPI
 
 ```bash
 pip install clichefactory-mcp
+```
+
+For local-mode extraction (document parsing on your machine), install with the local extras:
+
+```bash
+pip install "clichefactory-mcp[local]"
 ```
 
 ## Configuration
@@ -222,7 +212,6 @@ This MCP server covers the core extraction and conversion workflows. The followi
 
 ```bash
 # Install in development mode
-cd cliche-mcp
 uv sync
 
 # Run the server directly (stdio transport, for testing with MCP clients)
@@ -234,4 +223,4 @@ uv run mcp dev cliche_mcp/server.py
 
 ## License
 
-See the ClicheFactory license agreement.
+[MIT](LICENSE) — Copyright (c) 2026 Urban Susnik s.p.
