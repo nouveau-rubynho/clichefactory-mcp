@@ -14,7 +14,7 @@ classifiers = [
 ]
 dependencies = [
     "mcp[cli]>=1.0.0,<2",
-    "clichefactory>=0.3.0",
+    "clichefactory>=0.4.0",
 ]
 
 [project.optional-dependencies]
