@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 (pre-1.0: minor for additive features, patch for bugfix / dependency
 bump / docs).
 
+## [0.1.2] — 2026-05-10
+
+### Changed
+
+- Bumped `clichefactory` floor to `>=0.4.2` to pick up the SDK's new
+  default service base URL. Service-mode MCP installs now talk to
+  `https://api.clichefactory.com` out of the box — `CLICHEFACTORY_API_KEY`
+  is the only env var most users need. `CLICHEFACTORY_API_URL` remains
+  available as the override for local development and
+  self-hosted instances.
+
+### Documentation
+
+- Dropped the redundant `"CLICHEFACTORY_API_URL": "https://api.clichefactory.com"`
+  from the Cursor and OpenClaw service-mode example snippets — it was
+  always equivalent to the SDK default since the floor is now `>=0.4.2`.
+- Tightened the env-vars table description for `CLICHEFACTORY_API_URL`
+  to make it explicit that it overrides the default rather than enables
+  it.
+
 ## [0.1.1] — 2026-05-09
 
 ### Changed
