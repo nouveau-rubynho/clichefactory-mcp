@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 (pre-1.0: minor for additive features, patch for bugfix / dependency
 bump / docs).
 
+## [0.1.4] — 2026-05-10
+
+### Changed
+
+- Bumped `clichefactory` floor to `>=0.5.1` to pick up the SDK's
+  Docling-adapter page-marker fix. The SDK now emits canonical
+  `<!-- cf:page N -->` markers from `to_markdown()`, so
+  `PageChunker(pages_per_chunk=N)` actually splits multi-page
+  documents on page boundaries instead of falling back to
+  `TokenChunker` and producing a single chunk for any multi-page
+  document under the token cap. The MCP server's local-mode
+  `extract` and `to_markdown` tools route through this code path,
+  so fresh installs of the MCP server now pick up the fix
+  transparently. No public MCP tool surface changed.
+
 ## [0.1.3] — 2026-05-10
 
 ### Changed
