@@ -74,7 +74,7 @@ Set these in your MCP client configuration (see below) or in `~/.clichefactory/c
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `CLICHEFACTORY_API_KEY` | Service mode | ClicheFactory API key (format: `cliche-...`) |
-| `CLICHEFACTORY_API_URL` | No | Override the default service URL (`https://api.clichefactory.com`); useful for local aio-server development or self-hosting |
+| `CLICHEFACTORY_API_URL` | No | Override the default service URL (`https://api.clichefactory.com`); useful for local development against a self-hosted ClicheFactory backend |
 | `LLM_MODEL_NAME` | Local mode | Model name, e.g. `gemini/gemini-3-flash-preview` |
 | `LLM_API_KEY` | Local mode | API key for the LLM provider |
 | `OCR_MODEL_NAME` | No | Separate OCR/VLM model (defaults to main model) |

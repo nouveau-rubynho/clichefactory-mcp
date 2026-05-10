@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 (pre-1.0: minor for additive features, patch for bugfix / dependency
 bump / docs).
 
+## [0.1.3] — 2026-05-10
+
+### Changed
+
+- Bumped `clichefactory` floor to `>=0.5.0` to track the SDK's latest
+  minor. No public MCP tool surface changed — this is purely a
+  dependency-floor bump. See the SDK's CHANGELOG for SDK-side details.
+
 ## [0.1.2] — 2026-05-10
 
 ### Changed

@@ -7,11 +7,11 @@ bugfix / dependency bump / docs).
 The single source of truth for the version is `cliche_mcp/__about__.py`.
 `pyproject.toml` reads it dynamically via `[tool.hatch.version]`.
 
-`clichefactory-mcp` has **no internal consumers** — it's an end-user MCP
-server installed by hand (`pip install clichefactory-mcp` or `uvx
-clichefactory-mcp`). There is no `aio-server` / `training` / etc. floor
-to bump after publishing. That's the main reason this checklist is
-shorter than the SDK's `RELEASE.md`.
+`clichefactory-mcp` has **no downstream consumers** — it's an end-user
+MCP server installed by hand (`pip install clichefactory-mcp` or `uvx
+clichefactory-mcp`), so there is no internal floor to bump after
+publishing. That's the main reason this checklist is shorter than the
+SDK's `RELEASE.md`.
 
 ---
 
