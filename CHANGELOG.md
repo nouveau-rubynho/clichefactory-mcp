@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 (pre-1.0: minor for additive features, patch for bugfix / dependency
 bump / docs).
 
+## [0.1.5] — 2026-05-11
+
+### Changed
+
+- Bumped `clichefactory` floor to `>=0.6.0` to pick up the SDK's
+  in-flight 409 polling and the new
+  `clichefactory.AlreadyInFlightError` typed error. Service-mode
+  `extract` and `to_markdown` calls no longer crash with an opaque
+  `ParsingError` / `ExtractionError` when an identical request is
+  still being processed by the ClicheFactory service — the SDK now
+  polls with a more generous attempt budget (default 6 attempts ×
+  60 s cap) until the original attempt finishes and replays. Plain
+  client-side 409s (e.g. fingerprint mismatches on a reused
+  idempotency key) still fail fast. No public MCP tool surface
+  changed.
+
 ## [0.1.4] — 2026-05-10
 
 ### Changed
