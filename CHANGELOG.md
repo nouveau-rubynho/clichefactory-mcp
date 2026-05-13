@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 (pre-1.0: minor for additive features, patch for bugfix / dependency
 bump / docs).
 
+## [0.1.6] — 2026-05-14
+
+### Changed
+
+- Bumped `clichefactory` floor to `>=0.6.1` to pick up the SDK's
+  parser-registry fixes. `XlsxParser` and `DocxParser` can now be
+  instantiated through `MediaParserRegistry` (prior versions raised
+  `TypeError: __init__() got an unexpected keyword argument
+  'media_parser_registry'` the moment an `.xlsx` or `.docx` went
+  through the canonical `MediaRouter` path, so local-mode `extract`
+  and `to_markdown` on those formats silently fell out of the
+  parser pipeline). Also picks up `.odt` going through LibreOffice
+  (`soffice`) instead of pandoc — local-mode users now only need
+  `libreoffice-core` on PATH for `.doc` / `.odt` conversion.
+  No public MCP tool surface changed.
+
 ## [0.1.5] — 2026-05-11
 
 ### Changed
